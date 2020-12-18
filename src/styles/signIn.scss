@@ -1,0 +1,53 @@
+@use 'general.scss';
+
+.si-su-panel {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 50%;
+
+  .si-su-header {
+    background-color: general.$primary-colour-light;
+    border-bottom: 1px solid general.$primary-colour-text;
+    height: 40px;
+    padding: 5px 0;
+    text-align: center;
+  }
+
+  .si-su-body {
+    background-color: general.$primary-colour-lightest;
+    padding: 5px 2.5%;
+
+    button {
+      margin: 20px 35%;
+      width: 30%;
+    }
+
+    .sign-in-input {
+      margin: 20px 0;
+      width: 100%;
+
+      input {
+        font-size: 1rem;
+        width: 70%;
+      }
+
+      label {
+        display: inline-block;
+        width: 30%;
+      }
+    }
+  }
+}
+
+#sign-up-panel {
+
+  .sign-up-tip {
+    color: general.$secondary-colour-text;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  #sign-up-welcome {
+    text-align: center;
+  }
+}

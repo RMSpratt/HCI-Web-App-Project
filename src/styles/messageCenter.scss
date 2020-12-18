@@ -1,0 +1,359 @@
+@use './general.scss';
+
+@mixin message-panel($width: 70%) {
+  background-color: general.$primary-colour-lightest;
+  border: 2px solid general.$primary-colour-text;
+  margin: 20px auto;
+  width: $width;
+
+  .message-panel-header {
+    background-color: general.$primary-colour-light;
+    border-bottom: 1px solid general.$primary-colour-text;
+    padding: 5px 0;
+    text-align: center;
+  }
+}
+
+//Mixin for the panel for creating new messages and replying to messages
+%message-create-panel {
+
+  textarea {
+    font-size: 1rem;
+    margin: 20px 2.5%;
+    padding: 5px;
+    resize: none;
+    width: 95%;
+  }
+
+  .message-create-options {
+    margin: 20px 10%;
+    overflow: auto;
+    width: 80%;
+  
+    button {
+      margin: 0 10%;
+      width: 20%;
+    }
+  
+    #message-cancel-btn {
+      float: right;
+    }
+  
+    #message-send-btn{
+      float: left;
+    }
+  }
+}
+
+/** Class Selectors **/
+
+.message-confirm-panel {
+  @include message-panel(50%);
+
+  button {
+    margin: 20px 40%;
+    width: 20%;
+  }
+
+  .message-confirm-body {
+    margin: 20px auto;
+    width: 90%;
+  }
+}
+
+/** ID Selectors **/
+
+#message-center-warning {
+  width: 70%;
+}
+
+//Styling for messages in an expanded view
+#message-expanded {
+  border: 2px solid general.$primary-colour-text;
+
+  #expanded-header {
+    background-color: general.$primary-colour-light;
+    border-bottom: 1px solid general.$primary-colour-text;
+    height: 40px;
+    padding: 5px;
+    text-align: center;
+
+    button {
+      float: left;
+      height: 30px;
+      margin-left: 5px;
+      width: 10%;
+    }
+
+    h4 {
+      display: inline-block;
+      padding: 5px 0;
+    }
+  }
+
+  #expanded-body {
+    background-color: general.$primary-colour-lightest;
+    overflow: auto;
+    padding: 20px;
+
+    #expanded-sender {
+      background-color: general.$primary-colour-lightest-alt;
+      border-radius: 5px 5px 0px 0px;
+      font-weight: bold;
+      min-height: 30px;
+      padding: 5px;
+      text-decoration: underline;
+    }
+
+    #expanded-message-text {
+      background-color: general.$primary-colour-lightest-alt;
+      border-radius: 0px 0px 5px 5px;
+      margin-bottom: 20px;
+      min-height: 180px;
+      padding: 5px;
+    }
+
+    button {
+      display: block;
+      float: right;
+      margin-right: 5%;
+      width: 15%;
+    }
+  }
+}
+
+//Styling for messages displayed in list format
+#message-list {
+  border: 2px solid general.$primary-colour-text;
+  border-collapse: collapse;
+  width: 100%;
+
+  thead {
+    background-color: general.$primary-colour-light;
+  }
+
+  tbody {
+    background-color: general.$primary-colour-lightest-alt;
+  }
+
+  td, th {
+    padding: 0 10px;
+  }
+
+  td {
+    border-bottom: 1px solid general.$primary-colour-text;
+  }
+
+  td:nth-of-type(2), td:nth-of-type(3) {
+    text-align: center;
+  }
+
+  th {
+    border: 1px solid general.$primary-colour-text;
+  }
+
+  tr {
+    height: 30px;
+  }
+  
+  .message {
+
+    .subject {
+      text-decoration: underline;
+      width: 30%;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .sender {
+      width: 40%;
+    }
+
+    .dt {
+      width: 20%;
+    }
+  }
+}
+
+#message-panel {
+  float: right;
+  width: 70%;
+}
+
+.left {
+  float: left;
+  width: 25%;
+
+  #filter-panel {
+    border: 2px solid general.$primary-colour-text;
+
+    #filter-panel-header {
+      background-color: general.$primary-colour-light;
+      border-bottom: 1px solid general.$primary-colour-text;
+      padding: 2px;
+      text-align: center;
+    }
+
+    #filter-panel-body {
+      background-color: general.$primary-colour-lightest-alt;
+
+      .filter-option {
+        padding: 5px;
+
+        p {
+          display: inline-block;
+          margin-left: 10px;
+        }
+
+        &.selected {
+          font-weight: bold;
+        }
+
+        &:hover {
+          cursor: pointer;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  #send-btn {
+    height: 30px;
+    margin: 5px 10% 15px 10%;
+    width: 80%;
+  }
+}
+
+#new-message {
+  @include message-panel;
+  @extend %message-create-panel;
+
+  .new-message-input {
+    border-bottom: 1px solid general.$primary-colour-text;
+    padding: 10px 2.5%;
+
+    label {
+      display: inline-block;
+      font-weight: bold;
+      margin-right: 2.5%;
+      width: 20%;
+    }
+
+    input {
+      font-size: 1rem;
+      width: 77.5%;
+    }
+  }
+}
+
+#reply-message {
+  @include message-panel;
+  @extend %message-create-panel;
+
+  p {
+    margin: 10px 2.5%;
+    width: 95%;
+  }
+}
+
+#previous-reply-message {
+  @include message-panel;
+
+  #previous-reply-body {
+    background-color: general.$primary-colour-lightest;
+    padding: 20px;
+  }
+
+  #previous-reply-text {
+    background-color: general.$primary-colour-lightest-alt;
+    border-radius: 0px 0px 5px 5px;
+    margin-bottom: 20px;
+    padding: 5px;
+  }
+}
+
+/** Media Queries **/
+@media only screen and (max-width: 768px) {
+
+  #message-expanded {
+    #expanded-header {
+      button {
+        width: 15%;
+      }
+    }
+  }
+
+  #message-list {
+
+    th:nth-of-type(1) {
+      width: 60%
+    }
+
+    th:nth-of-type(2) {
+      width: 40%
+    }
+
+    th:nth-of-type(3) {
+      display: none;
+    }
+
+    tr {
+      
+      td:nth-of-type(1) {
+        width: 60%
+      }
+  
+      td:nth-of-type(2) {
+        width: 40%
+      }
+
+      td:nth-of-type(3) {
+        display: none;
+      }
+    }
+  }
+
+  .left {
+    #send-btn {
+      margin: 5px 0px 15px 0px;
+      width: 100%;
+    }
+  }
+
+  #new-message {
+    margin: 20px 5%;
+    width: 90%;
+
+    .message-create-options {
+      margin: 20px 5%;
+      width: 90%;
+    
+      button {
+        margin: 0 5%;
+        width: 25%;
+      }
+    }
+  }
+
+  #previous-reply-message {
+    margin: 20px 5%;
+    width: 90%;
+  }
+
+  #reply-message {
+    margin: 20px 5%;
+    width: 90%;
+
+    .message-create-options {
+      margin: 20px 5%;
+      width: 90%;
+    
+      button {
+        margin: 0 5%;
+        width: 25%;
+      }
+    }
+  }
+}

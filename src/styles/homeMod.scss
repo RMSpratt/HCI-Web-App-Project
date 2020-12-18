@@ -1,0 +1,63 @@
+@use './general.scss';
+
+#schedule {
+  float: left;
+  margin-bottom: 20px;
+  width: 70%;
+
+  #schedule-body {
+    background-color: general.$primary-colour-lightest;
+    border: 2px solid general.$primary-colour-text;
+    padding: 10px;
+
+    h3 {
+      text-align: center;
+    }
+
+    p {
+      font-weight: bold;
+      margin: 10px 0;
+      text-decoration: underline;
+    }
+
+    .schedule-table {
+      border: 1px solid general.$primary-colour-text;
+      border-collapse: collapse;
+      margin-bottom: 35px;
+      width: 100%;
+
+      thead {
+        background-color: general.$primary-colour-light;
+      }
+
+      tbody {
+        background-color: general.$primary-colour-lightest-alt;
+      }
+
+      tr {
+        height: 30px;
+
+        td, th {
+          border: 1px solid black;
+          padding: 0 10px;
+          text-align: center;
+          width: 20%;
+        }
+
+        td:first-of-type, th:first-of-type {
+          text-align: left;
+        }
+      }    
+    }
+  }
+}
+
+/** Media Queries **/
+@media only screen and (max-width: 992px) {
+  
+  #schedule {
+    display: block;
+    margin: 0 5% 50px 5%;
+    width: 90%;
+  }
+}

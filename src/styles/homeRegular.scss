@@ -1,0 +1,56 @@
+@use './general.scss';
+
+#calendar-panel {
+  float: left;
+  margin-bottom: 50px;
+  width: 70%;
+}
+
+#calendar-body {
+  border: 2px solid general.$primary-colour-text;
+  display: inline-flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .day {
+    background-color: general.$primary-colour-lightest-alt;
+    min-height: 100px;
+    padding: 0 5px;
+    flex-basis: calc(100% / 7);
+  }
+
+  .day:nth-child(odd) {
+    background-color: general.$primary-colour-lightest;
+  }
+
+  .date, .weekday {
+    display: inline-block;
+  }
+
+  .weekday {
+    float: right;
+  }
+
+  .shift {
+    background-color: general.$secondary-colour-light;
+    border: 1px solid general.$secondary-colour-dark;
+    border-radius: 5px;
+    margin: 20px auto;
+    text-align: center;
+    width: 80%;
+
+    p {
+      color: general.$secondary-colour-text;
+    }
+  }
+}
+
+/** Media Queries **/
+@media only screen and (max-width: 992px) {
+  
+  #calendar-panel {
+    display: block;
+    margin: 0 5% 50px 5%;
+    width: 90%;
+  }
+}

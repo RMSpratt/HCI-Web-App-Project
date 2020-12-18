@@ -1,0 +1,61 @@
+@use 'general.scss';
+
+.video-section {
+  background-color: general.$primary-colour-lightest;
+  border: 2px solid general.$primary-colour-text;
+  margin: 20px 0px;
+
+  .video-section-header {
+    background-color: general.$primary-colour-light;
+    height: 40px;
+    padding: 5px;
+  }
+
+  .video-section-body {
+    overflow: auto;
+
+    .video {
+      border: 1px solid black;
+      float: left;
+      margin: 20px 2.5%;
+      width: 20%;
+
+      .video-preview {
+        background-color: general.$primary-colour-text;
+        border-bottom: 1px solid general.$primary-colour-text;
+        height: 130px;
+
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .video-title {
+        background-color: general.$primary-colour-lightest-alt;
+        height: 2.75rem;
+        padding: 2px 5px;
+        text-decoration: underline;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/** Media Queries **/
+@media only screen and (max-width: 992px) {
+  
+  .video-section {
+
+    .video-section-body {
+
+      .video {
+        margin: 20px 1.666666%;
+        width: 30%;
+      }
+    }
+  }
+}
