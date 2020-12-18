@@ -14,9 +14,16 @@ class Page extends React.Component {
     super(props);
 
     this.state = {
-      page: this.getCurrentPage(),
-      userName: localStorage.getItem("userName"),
-      userType: localStorage.getItem("userType")
+      page: null,
+      userName: null,
+      userType: null
+    }
+
+    //Get the username and user type stored if present, and if running on the client
+    if (typeof window !== 'undefined') { 
+      this.state.userName = localStorage.getItem("userName")
+      this.state.userType = localStorage.getItem("userType")
+      this.state.page = this.getCurrentPage();
     }
 
     this.handleNavRequest = this.handleNavRequest.bind(this);
@@ -64,7 +71,11 @@ class Page extends React.Component {
     }
 
     this.setState({page: destination}, () => {
-      sessionStorage.setItem("page", destination);
+
+      if (typeof window !== 'undefined') { 
+        sessionStorage.setItem("page", destination);
+      }
+
       document.body.scrollTop = document.documentElement.scrollTop = 0;
     });
   }
@@ -76,28 +87,37 @@ class Page extends React.Component {
     //If the user signing in is a manager, 
     if (userType === "manager") {
       this.setState({page: "home-mod", userName: userName, userType: userType}, () => {
-        localStorage.setItem("signedIn", true);
-        localStorage.setItem("userName", userName);
-        localStorage.setItem("userType", userType);
-        sessionStorage.setItem("page", "home-mod");
+
+        if (typeof window !== 'undefined') { 
+          localStorage.setItem("signedIn", true);
+          localStorage.setItem("userName", userName);
+          localStorage.setItem("userType", userType);
+          sessionStorage.setItem("page", "home-mod");
+        }
       });
     }
 
     //Else, display the employee homepage
     else {
       this.setState({page: "home", userName: userName, userType: userType}, () => {
-        localStorage.setItem("signedIn", true);
-        localStorage.setItem("userName", userName);
-        localStorage.setItem("userType", userType);
-        sessionStorage.setItem("page", "home");
+        
+        if (typeof window !== 'undefined') { 
+          localStorage.setItem("signedIn", true);
+          localStorage.setItem("userName", userName);
+          localStorage.setItem("userType", userType);
+          sessionStorage.setItem("page", "home");
+        }
       });
     }
   }
 
   signOut() {
     this.setState({page: "signIn", userName: null, userType: null}, () => {
-      localStorage.clear();
-      sessionStorage.clear();
+
+      if (typeof window !== 'undefined') { 
+        localStorage.clear();
+        sessionStorage.clear();
+      }
     });
   }
 
