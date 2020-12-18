@@ -19,7 +19,9 @@ class EmployeeHome extends React.Component {
   }
 
 
-  //Event callback function to update the Calendar information to display
+  /* Function: updateCalendarInfo
+   * Description: This callback function is used to update the calendar's view to display a previous or future month.
+  */ 
   updateCalendarInfo(action) {
 
     let currentMonth = this.state.calendarInfo.month;

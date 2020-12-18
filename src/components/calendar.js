@@ -5,6 +5,7 @@ export default function Calendar(props) {
   let monthInfo = props.monthInfo;
   let dayElements = [];
 
+  //Create a div for each day of the month
   monthInfo.days.forEach(day => {
 
     let dayDiv;

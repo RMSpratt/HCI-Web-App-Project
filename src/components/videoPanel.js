@@ -6,8 +6,7 @@ export default function VideoPanel(props) {
   let videoPreviews = [];
   let videoIndex = 0;
 
-  console.log("Previews: " + videoPreviews.length);
-  
+  //Create a video preview div for each video
   props.titles.forEach(title => {
     videoPreviews.push(
     <div className="video" key={"video" + videoIndex}>

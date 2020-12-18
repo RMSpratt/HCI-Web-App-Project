@@ -109,10 +109,30 @@ class SignInPage extends React.Component {
 
       //The set of password criteria to check for
       let length = passValue.length;
-      let hasLower = /[a-z]/.test(passValue);
-      let hasUpper = /[A-Z]/.test(passValue);
-      let hasNumber = /[0-9]/.test(passValue);
-      let hasWhitespace = /[\s]/.test(passValue);
+      let hasLower = false; ///[a-z]/.test(passValue);
+      let hasUpper = false; ///[A-Z]/.test(passValue);
+      let hasNumber = false; ///[0-9]/.test(passValue);
+      let hasWhitespace = false; ///[\s]/.test(passValue);
+
+      //Iterate through the password to make sure it meets the strength criteria
+      for (let i = 0; i < length; i++) {
+
+        if (passValue[i] >= 'a' && passValue[i] <= 'z' && !hasLower) {
+          hasLower = true;
+        }
+
+        if (passValue[i] >= 'A' && passValue[i] <= 'Z' && !hasUpper) {
+          hasUpper = true;
+        }
+
+        if (passValue[i] >= '0' && passValue[i] <= '9' && !hasNumber) {
+          hasNumber = true;
+        }
+
+        if (passValue[i] === ' ' && !hasWhitespace) {
+          hasWhitespace = true;
+        }
+      }
 
       //Verify the password on each criteria
       if (length < 8 || !hasLower || !hasUpper || !hasNumber || hasWhitespace) {

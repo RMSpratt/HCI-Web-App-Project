@@ -14,7 +14,7 @@ class Page extends React.Component {
     super(props);
 
     this.state = {
-      page: null,
+      page: "signIn",
       userName: null,
       userType: null
     }

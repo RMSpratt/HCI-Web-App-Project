@@ -1,6 +1,10 @@
 import React from 'react';
 import {buildFormattedDate} from '../data/calendarInfo';
 
+
+/* Function: buildScheduleBody
+  * Description: This function is used to build the table for the current day's schedule.
+*/ 
 function buildScheduleBody(scheduleDetails) {
   
   let schedule = [];
