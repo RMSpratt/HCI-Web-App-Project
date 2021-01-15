@@ -2,11 +2,13 @@ FINAL PROJECT - Gatsby Website Application
 
 Name: Reed Spratt
 ID: 0953832
-CC: CIS*4300
 Date: December 17th 2020
 
 
 OVERVIEW
+
+This is a project developed during my fourth-year of post-secondary studies. All development was done by myself, and as it stands, the applciation
+is certainly functional, but incomplete in some facets. 
 
 This project is a Gatsby JS application designed to simulate a utility application to aid stores as part of a larger retailer chain. 
 It is only comprised of client-side functionality and doesn't have a back-end. 
