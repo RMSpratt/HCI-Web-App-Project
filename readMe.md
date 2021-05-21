@@ -1,8 +1,9 @@
 # FINAL PROJECT - Gatsby Website Application
 
-Name: Reed Spratt
-ID: 0953832
+**Name:** Reed Spratt
+
 Publish Date: December 17th 2020
+
 Last Updated: May 21st 2021
 
 
@@ -14,11 +15,9 @@ is functional, but incomplete in some areas.
 This project is a Gatsby JS application designed to simulate a utility application to aid stores as part of a larger retailer chain. 
 It is only comprised of client-side functionality and doesn't have a back-end. 
 
-Asides from gatsby, this project shouldn't require any additional libraries to run, but it does use a 'gh-pages' module to allow it 
-to be hosted.
-
 The website can be viewed at this link: https://hci-web-app-project.vercel.app 
-NOTE: A username + password combination is required for viewing, see the RUNNING INSTRUCTIONS section for details.
+
+**NOTE:** A username + password combination is required for viewing, see the RUNNING INSTRUCTIONS section for details.
 
 
 ## Requirements to Run
